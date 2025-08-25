@@ -10,32 +10,32 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte mais moderna */
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     body {
-      background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%); /* Fundo gradiente para mais profundidade */
+      background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
       color: #FFD700;
       min-height: 100vh;
-      padding: 30px; /* Aumentado */
+      padding: 30px;
     }
 
     .top-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: linear-gradient(to right, #222, #111); /* Gradiente sutil na barra */
-      padding: 20px 30px; /* Aumentado */
-      margin-bottom: 30px; /* Aumentado */
+      background: linear-gradient(to right, #222, #111);
+      padding: 20px 30px;
+      margin-bottom: 30px;
       flex-wrap: wrap;
-      gap: 20px; /* Aumentado */
-      border-radius: 15px; /* Aumentado */
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); /* Aumentado */
+      gap: 20px;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
       border: 1px solid #333;
     }
 
     .top-bar h1 {
-      font-size: 2.1rem; /* Aumentado */
+      font-size: 2.1rem;
       margin: 0;
       background: linear-gradient(to right, #FFD700, #D4AF37);
       -webkit-background-clip: text;
@@ -46,54 +46,54 @@
     .user-info {
       display: flex;
       align-items: center;
-      gap: 15px; /* Aumentado */
+      gap: 15px;
     }
 
     .user-info span {
       font-weight: bold;
-      font-size: 1.2rem; /* Aumentado */
+      font-size: 1.2rem;
     }
 
     .logout-btn {
-      background: linear-gradient(to bottom, #FFD700, #D4AF37); /* Gradiente dourado */
+      background: linear-gradient(to bottom, #FFD700, #D4AF37);
       color: #000;
       border: none;
-      padding: 11px 22px; /* Aumentado */
-      border-radius: 10px; /* Aumentado */
+      padding: 11px 22px;
+      border-radius: 10px;
       cursor: pointer;
       font-weight: bold;
-      transition: all 0.3s ease, transform 0.1s ease; /* Transições suaves */
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3); /* Aumentado */
-      font-size: 1.05rem; /* Aumentado */
+      transition: all 0.3s ease, transform 0.1s ease;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+      font-size: 1.05rem;
     }
 
     .logout-btn:hover {
       background: linear-gradient(to bottom, #e6c200, #c29e2e);
-      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4); /* Aumentado */
-      transform: translateY(-2px); /* Efeito de elevação */
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4);
+      transform: translateY(-2px);
     }
     .logout-btn:active {
        transform: translateY(0);
     }
 
     .container {
-      max-width: 1600px; /* Largura máxima aumentada */
+      max-width: 1600px;
       width: 100%;
       margin: 0 auto;
-      background: rgba(30, 30, 30, 0.9); /* Fundo mais opaco */
-      border-radius: 20px; /* Aumentado */
-      padding: 30px; /* Aumentado */
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6); /* Aumentado */
+      background: rgba(30, 30, 30, 0.9);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
       border: 1px solid #333;
     }
 
     .app-container {
       display: flex;
       flex-direction: column;
-      gap: 30px; /* Espaçamento aumentado */
+      gap: 30px;
     }
 
-    /* Modal de Login - Estilo Refinado */
+    /* Modal de Login */
     #loginModal {
       position: fixed;
       z-index: 1000;
@@ -102,76 +102,76 @@
       width: 100%;
       height: 100%;
       overflow: auto;
-      background-color: rgba(0,0,0,0.9); /* Fundo mais escuro */
+      background-color: rgba(0,0,0,0.9);
       display: flex;
       justify-content: center;
       align-items: center;
     }
 
     .login-container {
-      background: linear-gradient(145deg, #1a1a1a, #111); /* Gradiente no container */
-      padding: 45px; /* Aumentado */
-      border-radius: 18px; /* Aumentado */
+      background: linear-gradient(145deg, #1a1a1a, #111);
+      padding: 45px;
+      border-radius: 18px;
       text-align: center;
-      max-width: 580px; /* Aumentado */
+      max-width: 580px;
       width: 95%;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6); /* Aumentado */
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
       color: #FFD700;
       border: 1px solid #333;
     }
 
     .login-container h2 {
-      margin-bottom: 30px; /* Aumentado */
+      margin-bottom: 30px;
       color: #FFD700;
-      font-size: 2.2rem; /* Aumentado */
+      font-size: 2.2rem;
     }
 
     .form-group {
-      margin-bottom: 25px; /* Aumentado */
+      margin-bottom: 25px;
       text-align: left;
     }
 
     .form-group label {
       display: block;
-      margin-bottom: 10px; /* Aumentado */
-      font-weight: 600; /* Negrito mais suave */
-      font-size: 1.15rem; /* Aumentado */
+      margin-bottom: 10px;
+      font-weight: 600;
+      font-size: 1.15rem;
     }
 
     .form-group input {
       width: 100%;
-      padding: 16px; /* Aumentado */
-      border: 2px solid #444; /* Borda mais grossa */
-      border-radius: 12px; /* Bordas mais arredondadas */
-      background: linear-gradient(to bottom, #222, #1a1a1a); /* Gradiente no input */
+      padding: 16px;
+      border: 2px solid #444;
+      border-radius: 12px;
+      background: linear-gradient(to bottom, #222, #1a1a1a);
       color: #FFD700;
       box-sizing: border-box;
-      font-size: 1.1rem; /* Aumentado */
+      font-size: 1.1rem;
       transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
     .form-group input:focus {
         border-color: #FFD700;
         outline: none;
-        box-shadow: 0 0 10px rgba(255, 215, 0, 0.4); /* Aumentado */
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.4);
     }
 
     .login-button {
       background: linear-gradient(to bottom, #FFD700, #D4AF37);
       color: #000;
       border: none;
-      padding: 16px 30px; /* Aumentado */
-      border-radius: 12px; /* Aumentado */
+      padding: 16px 30px;
+      border-radius: 12px;
       cursor: pointer;
       font-weight: bold;
-      font-size: 1.2rem; /* Aumentado */
+      font-size: 1.2rem;
       transition: all 0.3s ease, transform 0.1s ease;
       width: 100%;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* Aumentado */
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
     }
 
     .login-button:hover {
       background: linear-gradient(to bottom, #e6c200, #c29e2e);
-      box-shadow: 0 7px 18px rgba(0, 0, 0, 0.5); /* Aumentado */
+      box-shadow: 0 7px 18px rgba(0, 0, 0, 0.5);
       transform: translateY(-2px);
     }
     .login-button:active {
@@ -179,22 +179,22 @@
     }
 
     #loginError {
-      color: #ff6b6b; /* Cor de erro mais vibrante */
-      margin-top: 25px; /* Aumentado */
-      padding: 15px; /* Aumentado */
-      border-radius: 10px; /* Aumentado */
-      background-color: rgba(139, 0, 0, 0.25); /* Fundo sutil para erro */
+      color: #ff6b6b;
+      margin-top: 25px;
+      padding: 15px;
+      border-radius: 10px;
+      background-color: rgba(139, 0, 0, 0.25);
       display: none;
       font-weight: 500;
-      font-size: 1.05rem; /* Aumentado */
+      font-size: 1.05rem;
     }
 
-    /* Seção de Lista de Vídeos - Refinada */
+    /* Lista de Vídeos */
     .videos-list-section {
       background: linear-gradient(to bottom, #1a1a1a, #111);
-      border-radius: 18px; /* Aumentado */
-      padding: 30px; /* Aumentado */
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); /* Aumentado */
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
       border: 1px solid #333;
     }
 
@@ -202,47 +202,46 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 25px; /* Aumentado */
+      margin-bottom: 25px;
       flex-wrap: wrap;
-      gap: 20px; /* Aumentado */
+      gap: 20px;
     }
 
     .list-header h2 {
-        font-size: 1.8rem; /* Aumentado */
+        font-size: 1.8rem;
         margin: 0;
         display: flex;
         align-items: center;
-        gap: 12px; /* Aumentado */
+        gap: 12px;
     }
 
     .search-container {
       display: flex;
-      gap: 15px; /* Aumentado */
+      gap: 15px;
       flex: 1;
-      max-width: 650px; /* Aumentado */
+      max-width: 650px;
     }
 
     .search-container input,
     .search-container select {
-      padding: 12px 16px; /* Aumentado */
+      padding: 12px 16px;
       border: 2px solid #444;
-      border-radius: 10px; /* Aumentado */
+      border-radius: 10px;
       background: linear-gradient(to bottom, #222, #1a1a1a);
       color: #FFD700;
-      font-size: 1.05rem; /* Aumentado */
+      font-size: 1.05rem;
     }
     .search-container input:focus,
     .search-container select:focus {
         border-color: #FFD700;
         outline: none;
-        box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); /* Aumentado */
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
     }
 
     .search-container input {
       flex: 1;
     }
 
-    /* Estilo para o seletor de categoria */
     #categoryFilter {
         background-color: #1a1a1a;
         color: #FFD700;
@@ -262,11 +261,10 @@
         color: #FFD700;
     }
 
-    /* --- NOVO: Estilo para a lista de vídeos com scroll --- */
     .video-list {
       list-style: none;
-      max-height: 200px; /* Altura máxima da lista */
-      overflow-y: auto; /* Ativa a barra de rolagem vertical */
+      max-height: 200px;
+      overflow-y: auto;
       padding: 0;
       margin: 0;
       border: 1px solid #333;
@@ -274,20 +272,19 @@
       background-color: rgba(20, 20, 20, 0.6);
     }
 
-    /* Estilo para a barra de rolagem */
     .video-list::-webkit-scrollbar {
-        width: 10px; /* Largura da barra */
+        width: 10px;
     }
     .video-list::-webkit-scrollbar-track {
-        background: #1a1a1a; /* Fundo da barra */
-        border-radius: 5px; /* Arredondamento */
+        background: #1a1a1a;
+        border-radius: 5px;
     }
     .video-list::-webkit-scrollbar-thumb {
-        background: #444; /* Cor do polegar */
-        border-radius: 5px; /* Arredondamento */
+        background: #444;
+        border-radius: 5px;
     }
     .video-list::-webkit-scrollbar-thumb:hover {
-        background: #555; /* Cor do polegar ao passar o mouse */
+        background: #555;
     }
 
     .video-item {
@@ -365,7 +362,7 @@
         font-weight: 500;
     }
 
-    /* Seção de Detalhes do Vídeo - Refinada */
+    /* Detalhes do Vídeo */
     .video-detail-section {
       background: linear-gradient(to bottom, #1a1a1a, #111);
       border-radius: 18px;
@@ -722,7 +719,7 @@
 
   <script>
     // - CONFIGURAÇÃO INICIAL -
-    // Substitua pela URL da sua Web App implantada
+    // URL da Web App do Google Apps Script
     let WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwSglTN2mDd55TtkMM7ecEukYs4iand8lxLW0K9vO587--HBug4B_sLN3sVrxRpGgVn/exec";
 
     // - VARIÁVEIS GLOBAIS -
@@ -730,7 +727,7 @@
     let filteredVideos = [];
     let currentVideoId = null;
     let userEmail = null;
-    let sessionToken = null; // Armazena o token de sessão
+    let sessionToken = null;
 
     // - INICIALIZAÇÃO -
     document.addEventListener("DOMContentLoaded", function() {
@@ -750,9 +747,9 @@
         userEmail = savedEmail;
         document.getElementById('user-email-display').textContent = userEmail;
         document.getElementById('user-info-section').style.display = 'flex';
-        document.getElementById('loginModal').style.display = 'none'; // Esconde o modal
+        document.getElementById('loginModal').style.display = 'none';
         document.getElementById('app-content').style.display = 'block';
-        loadVideos(); // Carrega vídeos usando o token salvo
+        loadVideos();
       }
     });
 
@@ -818,7 +815,6 @@
           }
           listItem.dataset.id = video.id;
 
-          // Formatar data de publicação
           let publishDateStr = "";
           if (video.publishDate) {
               const publishDate = new Date(video.publishDate);
@@ -856,13 +852,10 @@
       categoryElement.innerHTML = video.category ? `<i class="fas fa-tag"></i> ${video.category}` : "";
       document.getElementById("video-detail-description").textContent = video.description || "";
 
-      // --- CONFIGURAÇÃO DO PLAYER PARA BUNNY STREAM ---
+      // Configuração do player para Bunny Stream
       const videoPlayer = document.getElementById("video-player");
       if (videoPlayer && video.driveUrl) {
         try {
-            // Usa o link de incorporação diretamente fornecido pela planilha
-            // Exemplo: https://iframe.mediadelivery.net/embed/LIBRARY_ID/VIDEO_ID?...
-            // Adiciona atributos específicos recomendados pelo Bunny Stream
             videoPlayer.innerHTML = `
               <iframe
                 src="${video.driveUrl}"
@@ -880,7 +873,6 @@
       } else {
         videoPlayer.innerHTML = `<p>URL de incorporação do vídeo não disponível.</p>`;
       }
-      // --- FIM DA CONFIGURAÇÃO DO PLAYER ---
 
       // Atualizar progresso (simulado)
       const progress = getVideoProgress(video.id);
@@ -977,7 +969,7 @@
       sessionToken = null;
       userEmail = null;
       document.getElementById('user-info-section').style.display = 'none';
-      document.getElementById('loginModal').style.display = 'flex'; // Mostra o modal de login
+      document.getElementById('loginModal').style.display = 'flex';
       document.getElementById('app-content').style.display = 'none';
       allVideos = [];
       filteredVideos = [];
@@ -1001,13 +993,18 @@
       }
       try {
         showSection("loading-message");
-        // Passar o token como parâmetro de consulta
+        
+        // Usar proxy CORS para contornar problemas de CORS no GitHub Pages
+        const corsProxy = "https://cors-anywhere.herokuapp.com/";
         const url = new URL(WEB_APP_URL);
         url.searchParams.append('token', sessionToken);
-
-        const response = await fetch(url, {
+        
+        const response = await fetch(corsProxy + url, {
             method: 'GET',
-            redirect: 'follow'
+            redirect: 'follow',
+            headers: {
+              'X-Requested-With': 'XMLHttpRequest'
+            }
         });
 
         if (!response.ok) {
@@ -1016,7 +1013,6 @@
         }
         const result = await response.json();
 
-        // Verifica se o resultado é um array
         if (!Array.isArray(result)) {
           if (result && result.error) {
              throw new Error(result.error);
@@ -1044,7 +1040,7 @@
         } else {
            document.getElementById("video-player").innerHTML = '<p>Nenhuma videoaula disponível para este usuário.</p>';
         }
-        showSection("app-content"); // Mostra o conteúdo principal após carregar
+        showSection("app-content");
 
       } catch (error) {
         console.error("Erro ao carregar videoaulas:", error);
@@ -1062,15 +1058,20 @@
         return;
       }
       try {
+        // Usar proxy CORS para contornar problemas de CORS no GitHub Pages
+        const corsProxy = "https://cors-anywhere.herokuapp.com/";
         const url = new URL(WEB_APP_URL);
         const params = new URLSearchParams();
         params.append("action", "markWatched");
         params.append("id", videoId);
-        params.append("token", sessionToken); // Passa o token para a ação POST
+        params.append("token", sessionToken);
 
-        const response = await fetch(url, {
+        const response = await fetch(corsProxy + url, {
           method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          headers: { 
+            "Content-Type": "application/x-www-form-urlencoded",
+            'X-Requested-With': 'XMLHttpRequest'
+          },
           body: params,
           redirect: 'follow'
         });
@@ -1088,7 +1089,6 @@
           throw new Error(result.message || "Erro desconhecido ao marcar como assistido.");
         }
         showNotification('Videoaula marcada como assistida!');
-        // Atualizar a barra de progresso visualmente (simulado)
         document.getElementById("progress-fill").style.width = '100%';
       } catch (error) {
         console.error("Erro ao marcar videoaula:", error);
@@ -1098,11 +1098,7 @@
 
     function getVideoProgress(videoId) {
       // Simulação - na implementação real, isso viria do backend
-      // Baseado no histórico de visualização do usuário
-      // Para demonstração, retorna um valor aleatório
-      return Math.floor(Math.random() * 100); // 0-100%
-      // OU, para sempre mostrar 0% inicialmente:
-      // return 0;
+      return Math.floor(Math.random() * 100);
     }
   </script>
 </body>
