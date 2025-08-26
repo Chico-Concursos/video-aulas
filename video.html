@@ -12,12 +12,14 @@
       box-sizing: border-box;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte mais moderna */
     }
+
     body {
       background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%); /* Fundo gradiente para mais profundidade */
       color: #FFD700;
       min-height: 100vh;
       padding: 30px; /* Aumentado */
     }
+
     .top-bar {
       display: flex;
       justify-content: space-between;
@@ -31,6 +33,7 @@
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); /* Aumentado */
       border: 1px solid #333;
     }
+
     .top-bar h1 {
       font-size: 2.1rem; /* Aumentado */
       margin: 0;
@@ -39,15 +42,18 @@
       -webkit-text-fill-color: transparent;
       filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.2));
     }
+
     .user-info {
       display: flex;
       align-items: center;
       gap: 15px; /* Aumentado */
     }
+
     .user-info span {
       font-weight: bold;
       font-size: 1.2rem; /* Aumentado */
     }
+
     .logout-btn {
       background: linear-gradient(to bottom, #FFD700, #D4AF37); /* Gradiente dourado */
       color: #000;
@@ -60,6 +66,7 @@
       box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3); /* Aumentado */
       font-size: 1.05rem; /* Aumentado */
     }
+
     .logout-btn:hover {
       background: linear-gradient(to bottom, #e6c200, #c29e2e);
       box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4); /* Aumentado */
@@ -68,6 +75,7 @@
     .logout-btn:active {
        transform: translateY(0);
     }
+
     .container {
       max-width: 1600px; /* Largura máxima aumentada */
       width: 100%;
@@ -78,11 +86,13 @@
       box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6); /* Aumentado */
       border: 1px solid #333;
     }
+
     .app-container {
       display: flex;
       flex-direction: column;
       gap: 30px; /* Espaçamento aumentado */
     }
+
     /* Modal de Login - Estilo Refinado */
     #loginModal {
       position: fixed;
@@ -97,6 +107,7 @@
       justify-content: center;
       align-items: center;
     }
+
     .login-container {
       background: linear-gradient(145deg, #1a1a1a, #111); /* Gradiente no container */
       padding: 45px; /* Aumentado */
@@ -108,21 +119,25 @@
       color: #FFD700;
       border: 1px solid #333;
     }
+
     .login-container h2 {
       margin-bottom: 30px; /* Aumentado */
       color: #FFD700;
       font-size: 2.2rem; /* Aumentado */
     }
+
     .form-group {
       margin-bottom: 25px; /* Aumentado */
       text-align: left;
     }
+
     .form-group label {
       display: block;
       margin-bottom: 10px; /* Aumentado */
       font-weight: 600; /* Negrito mais suave */
       font-size: 1.15rem; /* Aumentado */
     }
+
     .form-group input {
       width: 100%;
       padding: 16px; /* Aumentado */
@@ -139,6 +154,7 @@
         outline: none;
         box-shadow: 0 0 10px rgba(255, 215, 0, 0.4); /* Aumentado */
     }
+
     .login-button {
       background: linear-gradient(to bottom, #FFD700, #D4AF37);
       color: #000;
@@ -152,6 +168,7 @@
       width: 100%;
       box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* Aumentado */
     }
+
     .login-button:hover {
       background: linear-gradient(to bottom, #e6c200, #c29e2e);
       box-shadow: 0 7px 18px rgba(0, 0, 0, 0.5); /* Aumentado */
@@ -160,6 +177,7 @@
     .login-button:active {
        transform: translateY(0);
     }
+
     #loginError {
       color: #ff6b6b; /* Cor de erro mais vibrante */
       margin-top: 25px; /* Aumentado */
@@ -170,6 +188,7 @@
       font-weight: 500;
       font-size: 1.05rem; /* Aumentado */
     }
+
     /* Seção de Lista de Vídeos - Refinada */
     .videos-list-section {
       background: linear-gradient(to bottom, #1a1a1a, #111);
@@ -178,6 +197,7 @@
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); /* Aumentado */
       border: 1px solid #333;
     }
+
     .list-header {
       display: flex;
       justify-content: space-between;
@@ -186,6 +206,7 @@
       flex-wrap: wrap;
       gap: 20px; /* Aumentado */
     }
+
     .list-header h2 {
         font-size: 1.8rem; /* Aumentado */
         margin: 0;
@@ -193,12 +214,14 @@
         align-items: center;
         gap: 12px; /* Aumentado */
     }
+
     .search-container {
       display: flex;
       gap: 15px; /* Aumentado */
       flex: 1;
       max-width: 650px; /* Aumentado */
     }
+
     .search-container input,
     .search-container select {
       padding: 12px 16px; /* Aumentado */
@@ -214,9 +237,11 @@
         outline: none;
         box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); /* Aumentado */
     }
+
     .search-container input {
       flex: 1;
     }
+
     /* Estilo para o seletor de categoria */
     #categoryFilter {
         background-color: #1a1a1a;
@@ -236,6 +261,7 @@
         background-color: #1a1a1a;
         color: #FFD700;
     }
+
     /* --- NOVO: Estilo para a lista de vídeos com scroll --- */
     .video-list {
       list-style: none;
@@ -247,6 +273,7 @@
       border-radius: 8px;
       background-color: rgba(20, 20, 20, 0.6);
     }
+
     /* Estilo para a barra de rolagem */
     .video-list::-webkit-scrollbar {
         width: 10px; /* Largura da barra */
@@ -262,6 +289,7 @@
     .video-list::-webkit-scrollbar-thumb:hover {
         background: #555; /* Cor do polegar ao passar o mouse */
     }
+
     .video-item {
       padding: 20px 25px;
       border-bottom: 1px solid #333;
@@ -271,6 +299,7 @@
       justify-content: space-between;
       align-items: center;
     }
+
     .video-item:last-child {
       border-bottom: none;
       border-radius: 0 0 10px 10px;
@@ -278,26 +307,31 @@
     .video-item:first-child {
        border-radius: 10px 10px 0 0;
     }
+
     .video-item:hover {
       background: linear-gradient(to right, #2a2a2a, #222);
       transform: translateX(5px);
       box-shadow: inset 5px 0 10px rgba(255, 215, 0, 0.1);
     }
+
     .video-item.active {
       background: linear-gradient(to right, #333, #2a2a2a);
       border-left: 6px solid #FFD700;
       transform: translateX(0);
       box-shadow: inset 5px 0 15px rgba(255, 215, 0, 0.2);
     }
+
     .video-info {
       flex: 1;
     }
+
     .video-title {
       font-weight: 600;
       margin-bottom: 8px;
       font-size: 1.2rem;
       color: #FFD700;
     }
+
     .video-meta {
       display: flex;
       flex-wrap: wrap;
@@ -305,6 +339,7 @@
       font-size: 1rem;
       color: #ccc;
     }
+
     .video-category, .video-duration {
       display: flex;
       align-items: center;
@@ -321,6 +356,7 @@
         color: #FFD700;
         font-size: 0.95rem;
     }
+
     .video-date {
         font-size: 0.95rem;
         color: #aaa;
@@ -328,6 +364,7 @@
         text-align: right;
         font-weight: 500;
     }
+
     /* Seção de Detalhes do Vídeo - Refinada */
     .video-detail-section {
       background: linear-gradient(to bottom, #1a1a1a, #111);
@@ -339,6 +376,7 @@
       gap: 25px;
       border: 1px solid #333;
     }
+
     .video-detail-header {
       display: flex;
       justify-content: space-between;
@@ -346,6 +384,7 @@
       flex-wrap: wrap;
       gap: 20px;
     }
+
     #video-detail-title {
       font-size: 2rem;
       font-weight: 600;
@@ -353,6 +392,7 @@
       flex: 1;
       color: #FFD700;
     }
+
     #video-detail-category {
       display: flex;
       align-items: center;
@@ -368,6 +408,7 @@
         color: #FFD700;
         font-size: 1.1rem;
     }
+
     #video-detail-description {
       background: linear-gradient(to bottom, #222, #1a1a1a);
       padding: 25px;
@@ -379,6 +420,7 @@
       box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.3);
       color: #eee;
     }
+
     .video-player-container {
       background-color: #000;
       border-radius: 15px;
@@ -390,6 +432,7 @@
       position: relative;
       padding-top: 56.25%; /* 16:9 */
     }
+
     #video-player {
         position: absolute;
         top: 0;
@@ -397,12 +440,14 @@
         width: 100%;
         height: 100%;
     }
+
     #video-player iframe {
         width: 100%;
         height: 100%;
         border: none;
         border-radius: 15px;
     }
+
     .progress-bar {
       width: 100%;
       height: 14px;
@@ -412,6 +457,7 @@
       box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.5);
       border: 1px solid #333;
     }
+
     .progress-fill {
       height: 100%;
       background: linear-gradient(to right, #FFD700, #D4AF37);
@@ -419,10 +465,12 @@
       transition: width 0.6s ease;
       border-radius: 12px;
     }
+
     .video-actions {
       display: flex;
       justify-content: flex-end;
     }
+
     .btn-mark-watched {
       background: linear-gradient(to bottom, #FFD700, #D4AF37);
       color: #000;
@@ -438,6 +486,7 @@
       font-size: 1.1rem;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     }
+
     .btn-mark-watched:hover {
       background: linear-gradient(to bottom, #e6c200, #c29e2e);
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
@@ -446,6 +495,7 @@
     .btn-mark-watched:active {
        transform: translateY(0);
     }
+
     /* Mensagens */
     .message {
       text-align: center;
@@ -457,6 +507,7 @@
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
       border: 1px solid #333;
     }
+
     /* Notificações */
     .notification-container {
       position: fixed;
@@ -464,6 +515,7 @@
       right: 30px;
       z-index: 10000;
     }
+
     .notification {
       background: linear-gradient(to right, #333, #2a2a2a);
       color: #FFD700;
@@ -479,6 +531,7 @@
       font-weight: 500;
       font-size: 1.05rem;
     }
+
     .notification.error {
       background: linear-gradient(to right, #441111, #330000);
       border-left-color: #ff6b6b;
@@ -487,151 +540,14 @@
     .notification.error i {
         color: #ff6b6b;
     }
+
     @keyframes fadeInOut {
       0% { opacity: 0; transform: translateX(120px); }
       10% { opacity: 1; transform: translateX(0); }
       90% { opacity: 1; transform: translateX(0); }
       100% { opacity: 0; transform: translateX(120px); }
     }
-    /* --- NOVO: Estilos para os botões de controle de tamanho --- */
-    .video-control-buttons {
-      position: absolute;
-      bottom: 15px;
-      right: 15px;
-      display: flex;
-      gap: 10px;
-      z-index: 100;
-    }
-    
-    .video-control-btn {
-      background: rgba(0, 0, 0, 0.6);
-      color: #FFD700;
-      border: 1px solid #FFD700;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
-      font-size: 1.2rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: background-color 0.2s ease, transform 0.1s ease;
-    }
-    
-    .video-control-btn:hover {
-      background: rgba(255, 215, 0, 0.2);
-      transform: scale(1.1);
-    }
-    
-    /* Estilos para o modal de tela cheia */
-    .fullscreen-modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.95);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 3000;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-    
-    .fullscreen-modal.active {
-      opacity: 1;
-      visibility: visible;
-    }
-    
-    .fullscreen-modal-content {
-      position: relative;
-      width: 80%;
-      height: 80%;
-      max-width: 1200px;
-      max-height: 800px;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-      background-color: #000;
-      transition: width 0.4s ease, height 0.4s ease;
-    }
-    
-    .fullscreen-modal-content.size-small {
-      width: 60%;
-      height: 60%;
-    }
-    
-    .fullscreen-modal-content.size-medium {
-      width: 80%;
-      height: 80%;
-    }
-    
-    .fullscreen-modal-content.size-full {
-      width: 95%;
-      height: 95%;
-    }
-    
-    .fullscreen-modal-player {
-      width: 100%;
-      height: 100%;
-    }
-    
-    .fullscreen-modal-player iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-    
-    .fullscreen-modal-close {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      background: rgba(0, 0, 0, 0.6);
-      color: #fff;
-      border: 1px solid #fff;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
-      font-size: 1.2rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 3010;
-      transition: background-color 0.2s ease, transform 0.1s ease;
-    }
-    
-    .fullscreen-modal-close:hover {
-      background: rgba(255, 0, 0, 0.8);
-      transform: scale(1.1);
-    }
-    
-    .fullscreen-modal-expand {
-      position: absolute;
-      bottom: 15px;
-      right: 15px;
-      background: rgba(0, 0, 0, 0.6);
-      color: #FFD700;
-      border: 1px solid #FFD700;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      cursor: pointer;
-      font-size: 1.2rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 3010;
-      transition: background-color 0.2s ease, transform 0.1s ease;
-    }
-    
-    .fullscreen-modal-expand:hover {
-      background: rgba(255, 215, 0, 0.2);
-      transform: scale(1.1);
-    }
-    /* --- FIM: Estilos para os botões de controle de tamanho --- */
+
     /* Responsivo */
     @media (max-width: 992px) {
       body {
@@ -727,6 +643,7 @@
       <button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Sair</button>
     </div>
   </div>
+
   <div class="container">
     <div class="app-container">
       <!-- Modal de Login -->
@@ -747,6 +664,7 @@
           <div id="loginError"></div>
         </div>
       </div>
+
       <!-- Conteúdo Principal (Lista e Detalhes) -->
       <div id="app-content" style="display: none;">
         <!-- Lista de Vídeos -->
@@ -765,6 +683,7 @@
             <!-- Lista de vídeos será preenchida aqui -->
           </ul>
         </div>
+
         <!-- Detalhes do Vídeo -->
         <div class="video-detail-section">
           <div class="video-detail-header">
@@ -776,16 +695,6 @@
             <div id="video-player">
               <p>Selecione uma videoaula para reproduzir.</p>
             </div>
-            <!-- --- NOVO: Botões de controle de tamanho dentro do layout --- -->
-            <div class="video-control-buttons">
-              <button class="video-control-btn" id="layout-expand-btn" title="Expandir no layout">
-                <i class="fas fa-expand"></i>
-              </button>
-              <button class="video-control-btn" id="fullscreen-expand-btn" title="Expandir para tela cheia">
-                <i class="fas fa-external-link-alt"></i>
-              </button>
-            </div>
-            <!-- --- FIM: Botões de controle de tamanho dentro do layout --- -->
           </div>
           <div class="progress-bar">
             <div class="progress-fill" id="progress-fill"></div>
@@ -797,6 +706,7 @@
           </div>
         </div>
       </div>
+
       <!-- Mensagens -->
       <div id="loading-message" class="message" style="display: none;">
         <p><i class="fas fa-spinner fa-spin"></i> Carregando videoaulas...</p>
@@ -806,38 +716,22 @@
       </div>
     </div>
   </div>
-  <!-- --- NOVO: Modal para tela cheia --- -->
-  <div class="fullscreen-modal" id="fullscreen-modal">
-    <div class="fullscreen-modal-content size-small" id="fullscreen-modal-content">
-      <div class="fullscreen-modal-player" id="fullscreen-modal-player"></div>
-      <button class="fullscreen-modal-close" id="fullscreen-modal-close">
-        <i class="fas fa-times"></i>
-      </button>
-      <button class="fullscreen-modal-expand" id="fullscreen-modal-expand">
-        <i class="fas fa-expand"></i>
-      </button>
-    </div>
-  </div>
-  <!-- --- FIM: Modal para tela cheia --- -->
+
   <!-- Sistema de Notificação -->
   <div class="notification-container" id="notification-container"></div>
+
   <script>
     // - CONFIGURAÇÃO INICIAL -
     // Substitua pela URL da sua Web App implantada
     let WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwSglTN2mDd55TtkMM7ecEukYs4iand8lxLW0K9vO587--HBug4B_sLN3sVrxRpGgVn/exec";
+
     // - VARIÁVEIS GLOBAIS -
     let allVideos = [];
     let filteredVideos = [];
     let currentVideoId = null;
     let userEmail = null;
     let sessionToken = null; // Armazena o token de sessão
-    
-    // --- NOVO: Variáveis para controle de tamanho ---
-    let layoutSizeState = 'small'; // small, medium, full
-    let fullscreenSizeState = 'small'; // small, medium, full
-    let currentFullscreenVideoUrl = '';
-    // --- FIM: Variáveis para controle de tamanho ---
-    
+
     // - INICIALIZAÇÃO -
     document.addEventListener("DOMContentLoaded", function() {
       const loginForm = document.getElementById("loginForm");
@@ -847,6 +741,7 @@
           login();
         });
       }
+
       // Verifica se há token salvo no localStorage (sessão persistente)
       const savedToken = localStorage.getItem('videoUserToken');
       const savedEmail = localStorage.getItem('videoUserEmail');
@@ -859,19 +754,8 @@
         document.getElementById('app-content').style.display = 'block';
         loadVideos(); // Carrega vídeos usando o token salvo
       }
-      
-      // --- NOVO: Adicionar event listeners para os botões de controle ---
-      document.getElementById('layout-expand-btn').addEventListener('click', toggleLayoutVideoSize);
-      document.getElementById('fullscreen-expand-btn').addEventListener('click', openFullscreenModal);
-      document.getElementById('fullscreen-modal-close').addEventListener('click', closeFullscreenModal);
-      document.getElementById('fullscreen-modal-expand').addEventListener('click', toggleFullscreenVideoSize);
-      document.getElementById('fullscreen-modal').addEventListener('click', function(e) {
-        if (e.target === this) {
-          closeFullscreenModal();
-        }
-      });
-      // --- FIM: Adicionar event listeners para os botões de controle ---
     });
+
     // - SISTEMA DE NOTIFICAÇÃO -
     function showNotification(message, type = 'success') {
       const container = document.getElementById('notification-container');
@@ -880,12 +764,14 @@
       const iconClass = type === 'error' ? 'fa-exclamation-circle' : 'fa-check-circle';
       notification.innerHTML = `<i class="fas ${iconClass}"></i> ${message}`;
       container.appendChild(notification);
+
       setTimeout(() => {
         if (notification.parentNode) {
           notification.remove();
         }
       }, 5000);
     }
+
     // - FUNÇÕES DE INTERFACE -
     function showSection(sectionId) {
       const sections = ["app-content", "loading-message", "error-message"];
@@ -897,10 +783,12 @@
         document.getElementById(sectionId).style.display = 'block';
       }
     }
+
     function showError(message) {
       document.getElementById('error-text').textContent = message;
       showSection('error-message');
     }
+
     function populateCategoryFilter() {
       const categories = [...new Set(allVideos.map(v => v.category).filter(cat => cat))];
       const filterSelect = document.getElementById("categoryFilter");
@@ -912,6 +800,7 @@
         filterSelect.appendChild(option);
       });
     }
+
     // - FUNÇÕES DE EXIBIÇÃO DE DADOS -
     function displayVideosList() {
       const listElement = document.getElementById("videos-list");
@@ -928,6 +817,7 @@
             listItem.classList.add("active");
           }
           listItem.dataset.id = video.id;
+
           // Formatar data de publicação
           let publishDateStr = "";
           if (video.publishDate) {
@@ -936,6 +826,7 @@
                   publishDateStr = publishDate.toLocaleDateString('pt-BR');
               }
           }
+
           listItem.innerHTML = `
             <div class="video-info">
               <div class="video-title">${video.title || "Sem título"}</div>
@@ -951,118 +842,7 @@
         });
       }
     }
-    
-    // --- NOVO: Funções para controle de tamanho ---
-    function toggleLayoutVideoSize() {
-      const playerContainer = document.querySelector('.video-player-container');
-      const videoPlayer = document.getElementById('video-player');
-      
-      if (layoutSizeState === 'small') {
-        layoutSizeState = 'medium';
-        playerContainer.style.paddingTop = '75%'; // 4:3
-      } else if (layoutSizeState === 'medium') {
-        layoutSizeState = 'full';
-        playerContainer.style.paddingTop = '100%'; // 1:1
-      } else { // full
-        layoutSizeState = 'small';
-        playerContainer.style.paddingTop = '56.25%'; // 16:9 (original)
-      }
-      
-      // Atualiza o ícone do botão
-      updateLayoutExpandButtonIcon();
-    }
-    
-    function updateLayoutExpandButtonIcon() {
-      const btn = document.getElementById('layout-expand-btn');
-      let iconClass = 'fa-expand';
-      if (layoutSizeState === 'small') {
-        iconClass = 'fa-expand';
-      } else if (layoutSizeState === 'medium') {
-        iconClass = 'fa-expand';
-      } else if (layoutSizeState === 'full') {
-        iconClass = 'fa-compress';
-      }
-      btn.innerHTML = `<i class="fas ${iconClass}"></i>`;
-    }
-    
-    function openFullscreenModal() {
-      const video = allVideos.find(v => v.id == currentVideoId);
-      if (!video || !video.driveUrl) {
-        showNotification('Nenhum vídeo selecionado para tela cheia.', 'error');
-        return;
-      }
-      
-      const modal = document.getElementById('fullscreen-modal');
-      const modalPlayer = document.getElementById('fullscreen-modal-player');
-      const modalContent = document.getElementById('fullscreen-modal-content');
-      
-      currentFullscreenVideoUrl = video.driveUrl;
-      fullscreenSizeState = 'small';
-      modalContent.className = 'fullscreen-modal-content size-small';
-      
-      try {
-        modalPlayer.innerHTML = `
-          <iframe
-            src="${currentFullscreenVideoUrl}"
-            loading="lazy"
-            style="border:0; width:100%; height:100%;"
-            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;"
-            allowfullscreen
-            sandbox="allow-scripts allow-same-origin allow-presentation"
-          ></iframe>
-        `;
-      } catch (e) {
-        console.error("Erro ao configurar o player modal de vídeo:", e);
-        modalPlayer.innerHTML = `<p>Erro ao carregar o vídeo.</p>`;
-        return;
-      }
-      
-      modal.classList.add('active');
-      updateFullscreenExpandButtonIcon();
-    }
-    
-    function closeFullscreenModal() {
-      const modal = document.getElementById('fullscreen-modal');
-      const modalPlayer = document.getElementById('fullscreen-modal-player');
-      
-      modal.classList.remove('active');
-      setTimeout(() => {
-        modalPlayer.innerHTML = '';
-        currentFullscreenVideoUrl = '';
-      }, 300);
-    }
-    
-    function toggleFullscreenVideoSize() {
-      const modalContent = document.getElementById('fullscreen-modal-content');
-      
-      if (fullscreenSizeState === 'small') {
-        fullscreenSizeState = 'medium';
-        modalContent.className = 'fullscreen-modal-content size-medium';
-      } else if (fullscreenSizeState === 'medium') {
-        fullscreenSizeState = 'full';
-        modalContent.className = 'fullscreen-modal-content size-full';
-      } else { // full
-        fullscreenSizeState = 'small';
-        modalContent.className = 'fullscreen-modal-content size-small';
-      }
-      
-      updateFullscreenExpandButtonIcon();
-    }
-    
-    function updateFullscreenExpandButtonIcon() {
-      const btn = document.getElementById('fullscreen-modal-expand');
-      let iconClass = 'fa-expand';
-      if (fullscreenSizeState === 'small') {
-        iconClass = 'fa-expand';
-      } else if (fullscreenSizeState === 'medium') {
-        iconClass = 'fa-expand';
-      } else if (fullscreenSizeState === 'full') {
-        iconClass = 'fa-compress';
-      }
-      btn.innerHTML = `<i class="fas ${iconClass}"></i>`;
-    }
-    // --- FIM: Funções para controle de tamanho ---
-    
+
     function showVideoDetails(videoId) {
       const video = allVideos.find(v => v.id == videoId);
       if (!video) {
@@ -1070,10 +850,12 @@
         return;
       }
       currentVideoId = video.id;
+
       document.getElementById("video-detail-title").textContent = video.title || "Sem título";
       const categoryElement = document.getElementById("video-detail-category");
       categoryElement.innerHTML = video.category ? `<i class="fas fa-tag"></i> ${video.category}` : "";
       document.getElementById("video-detail-description").textContent = video.description || "";
+
       // --- CONFIGURAÇÃO DO PLAYER PARA BUNNY STREAM ---
       const videoPlayer = document.getElementById("video-player");
       if (videoPlayer && video.driveUrl) {
@@ -1099,9 +881,11 @@
         videoPlayer.innerHTML = `<p>URL de incorporação do vídeo não disponível.</p>`;
       }
       // --- FIM DA CONFIGURAÇÃO DO PLAYER ---
+
       // Atualizar progresso (simulado)
       const progress = getVideoProgress(video.id);
       document.getElementById("progress-fill").style.width = `${progress}%`;
+
       // Atualizar item ativo na lista
       document.querySelectorAll(".video-item").forEach(item => {
         item.classList.remove("active");
@@ -1109,44 +893,49 @@
           item.classList.add("active");
         }
       });
+
       // Scroll para o topo da seção de detalhes
       document.querySelector('.video-detail-section').scrollIntoView({ behavior: 'smooth' });
-      
-      // --- NOVO: Resetar estado do layout ao mostrar novo vídeo ---
-      layoutSizeState = 'small';
-      document.querySelector('.video-player-container').style.paddingTop = '56.25%';
-      updateLayoutExpandButtonIcon();
-      // --- FIM: Resetar estado do layout ao mostrar novo vídeo ---
     }
+
     // - FUNÇÕES DE FILTRO E BUSCA -
     function filterVideos() {
       const searchTerm = document.getElementById("searchInput").value.toLowerCase();
       const categoryFilter = document.getElementById("categoryFilter").value;
+
       filteredVideos = allVideos.filter(video => {
         const matchesSearch =
           (video.title && video.title.toLowerCase().includes(searchTerm)) ||
           (video.description && video.description.toLowerCase().includes(searchTerm)) ||
           (video.category && video.category.toLowerCase().includes(searchTerm));
+
         const matchesCategory = categoryFilter === "" || video.category === categoryFilter;
+
         return matchesSearch && matchesCategory;
       });
+
       displayVideosList();
     }
+
     // - FUNÇÕES DE AUTENTICAÇÃO -
     async function login() {
       const emailInput = document.getElementById('loginEmail');
       const passwordInput = document.getElementById('loginPassword');
       const errorElement = document.getElementById('loginError');
+
       if (emailInput && passwordInput) {
         const email = emailInput.value.trim();
         const password = passwordInput.value;
+
         if (!email || !password) {
           errorElement.textContent = 'Por favor, preencha todos os campos.';
           errorElement.style.display = 'block';
           return;
         }
+
         try {
             errorElement.style.display = 'none';
+
             const response = await fetch(WEB_APP_URL, {
               method: 'POST',
               headers: {
@@ -1154,13 +943,17 @@
               },
               body: `action=login&email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`
             });
+
             const result = await response.json();
+
             if (result.success) {
                 userEmail = result.email;
                 sessionToken = result.sessionToken;
+
                 // Armazenar token e email no localStorage para sessão persistente
                 localStorage.setItem('videoUserToken', sessionToken);
                 localStorage.setItem('videoUserEmail', userEmail);
+
                 document.getElementById('user-email-display').textContent = userEmail;
                 document.getElementById('user-info-section').style.display = 'flex';
                 document.getElementById('loginModal').style.display = 'none';
@@ -1177,6 +970,7 @@
         }
       }
     }
+
     function logout() {
       localStorage.removeItem('videoUserToken');
       localStorage.removeItem('videoUserEmail');
@@ -1197,11 +991,8 @@
       document.getElementById("searchInput").value = "";
       document.getElementById("categoryFilter").innerHTML = '<option value="">Todas as Categorias</option>';
       showNotification('Você saiu da conta.', 'success');
-      
-      // --- NOVO: Fechar modal de tela cheia ao sair ---
-      closeFullscreenModal();
-      // --- FIM: Fechar modal de tela cheia ao sair ---
     }
+
     // - FUNÇÕES DE COMUNICAÇÃO COM O BACKEND -
     async function loadVideos() {
       if (!sessionToken) {
@@ -1213,15 +1004,18 @@
         // Passar o token como parâmetro de consulta
         const url = new URL(WEB_APP_URL);
         url.searchParams.append('token', sessionToken);
+
         const response = await fetch(url, {
             method: 'GET',
             redirect: 'follow'
         });
+
         if (!response.ok) {
            const errorText = await response.text();
            throw new Error(`Erro ${response.status}: ${errorText}`);
         }
         const result = await response.json();
+
         // Verifica se o resultado é um array
         if (!Array.isArray(result)) {
           if (result && result.error) {
@@ -1230,6 +1024,7 @@
              throw new Error('Resposta do servidor inválida');
           }
         }
+
         allVideos = result.map(item => ({
           id: item.id || item["ID"] || "",
           title: item.title || item["Título"] || "Sem título",
@@ -1239,20 +1034,24 @@
           duration: item.duration || item["Duração"] || "",
           publishDate: item.publishDate || item["Data de Publicação"] || ""
         }));
+
         filteredVideos = [...allVideos];
         populateCategoryFilter();
         displayVideosList();
+
         if (filteredVideos.length > 0) {
           showVideoDetails(filteredVideos[0].id);
         } else {
            document.getElementById("video-player").innerHTML = '<p>Nenhuma videoaula disponível para este usuário.</p>';
         }
         showSection("app-content"); // Mostra o conteúdo principal após carregar
+
       } catch (error) {
         console.error("Erro ao carregar videoaulas:", error);
         showError(`Falha ao carregar videoaulas: ${error.message}`);
       }
     }
+
     async function markAsWatched(videoId) {
       if (!sessionToken) {
         showNotification('Usuário não autenticado.', 'error');
@@ -1268,16 +1067,19 @@
         params.append("action", "markWatched");
         params.append("id", videoId);
         params.append("token", sessionToken); // Passa o token para a ação POST
+
         const response = await fetch(url, {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: params,
           redirect: 'follow'
         });
+
         if (!response.ok) {
            const errorText = await response.text();
            throw new Error(`Erro ${response.status}: ${errorText}`);
         }
+
         const result = await response.json();
         if (result.error) {
           throw new Error(result.error);
@@ -1293,6 +1095,7 @@
         showNotification(`Erro ao marcar: ${error.message}`, 'error');
       }
     }
+
     function getVideoProgress(videoId) {
       // Simulação - na implementação real, isso viria do backend
       // Baseado no histórico de visualização do usuário
