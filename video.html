@@ -1020,9 +1020,6 @@
                                     iframeDoc.querySelector('button[title*="Expand"]');
 
                 if (fullscreenBtn) {
-                    // Armazena o handler original do clique
-                    const originalClickHandler = fullscreenBtn.onclick;
-
                     // Substitui o clique original pelo nosso
                     fullscreenBtn.onclick = function(e) {
                         e.preventDefault(); // Evita a ação padrão do player
@@ -1031,12 +1028,6 @@
                         // Abre o nosso modal personalizado
                         openVideoModal(videoUrl);
                     };
-
-                    // Se o botão já tiver um onclick, armazenamos para possível uso futuro
-                    // (ex: se precisarmos chamar o original em algum caso)
-                    if (originalClickHandler) {
-                        // Não é necessário salvar, pois estamos sobrescrevendo.
-                    }
                 }
             } catch (e) {
                 console.warn("Não foi possível injetar o listener no botão de fullscreen do iframe.", e);
