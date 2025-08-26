@@ -493,7 +493,7 @@
       90% { opacity: 1; transform: translateX(0); }
       100% { opacity: 0; transform: translateX(120px); }
     }
-    /* --- NOVO: Estilos para o Player Modal de Ampliação --- */
+    /* --- NOVO: Estilos para o Player Modal de Ampliação com Ícone Original --- */
     .video-modal-overlay {
       position: fixed;
       top: 0;
@@ -601,7 +601,7 @@
       background: rgba(255, 215, 0, 0.2);
       transform: scale(1.1);
     }
-    /* --- FIM: Estilos para o Player Modal de Ampliação --- */
+    /* --- FIM: Estilos para o Player Modal de Ampliação com Ícone Original --- */
     /* Responsivo */
     @media (max-width: 992px) {
       body {
@@ -766,7 +766,7 @@
       </div>
     </div>
   </div>
-  <!-- --- NOVO: Player Modal de Ampliação --- -->
+  <!-- --- NOVO: Player Modal de Ampliação com Ícone Original --- -->
   <div id="video-modal-overlay" class="video-modal-overlay">
     <div id="video-modal-player-container" class="video-modal-player-container size-small"> <!-- Começa pequeno -->
       <button id="video-modal-close-btn" class="video-modal-close-btn">
@@ -780,7 +780,7 @@
       </div>
     </div>
   </div>
-  <!-- --- FIM: Player Modal de Ampliação --- -->
+  <!-- --- FIM: Player Modal de Ampliação com Ícone Original --- -->
   <!-- Sistema de Notificação -->
   <div class="notification-container" id="notification-container"></div>
   <script>
@@ -916,75 +916,75 @@
         });
       }
     }
-    // --- NOVO: Lógica para o Player Modal de Ampliação ---
+    // --- NOVO: Lógica para o Player Modal de Ampliação com Ícone Original ---
     let currentModalVideoUrl = '';
     let modalSizeState = 'small'; // 'small', 'medium', 'full'
 
     function openVideoModal(videoUrl) {
-      if (!videoUrl) return;
+        if (!videoUrl) return;
 
-      const overlay = document.getElementById('video-modal-overlay');
-      const playerContainer = document.getElementById('video-modal-player-container');
-      const playerElement = document.getElementById('video-modal-player');
-      const expandBtn = document.getElementById('video-modal-expand-btn');
+        const overlay = document.getElementById('video-modal-overlay');
+        const playerContainer = document.getElementById('video-modal-player-container');
+        const playerElement = document.getElementById('video-modal-player');
+        const expandBtn = document.getElementById('video-modal-expand-btn');
 
-      currentModalVideoUrl = videoUrl;
-      modalSizeState = 'small'; // Resetar para o estado inicial
+        currentModalVideoUrl = videoUrl;
+        modalSizeState = 'small'; // Resetar para o estado inicial
 
-      // Configurar o player com o vídeo
-      try {
-        playerElement.innerHTML = `
-          <iframe
-            src="${currentModalVideoUrl}"
-            loading="lazy"
-            style="border:0; width:100%; height:100%;"
-            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;"
-            allowfullscreen
-            sandbox="allow-scripts allow-same-origin allow-presentation"
-          ></iframe>
-        `;
-      } catch (e) {
-        console.error("Erro ao configurar o player modal de vídeo:", e);
-        playerElement.innerHTML = `<p>Erro ao carregar o vídeo.</p>`;
-        return;
-      }
+        // Configurar o player com o vídeo
+        try {
+            playerElement.innerHTML = `
+                <iframe
+                    src="${currentModalVideoUrl}"
+                    loading="lazy"
+                    style="border:0; width:100%; height:100%;"
+                    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;"
+                    allowfullscreen
+                    sandbox="allow-scripts allow-same-origin allow-presentation"
+                ></iframe>
+            `;
+        } catch (e) {
+            console.error("Erro ao configurar o player modal de vídeo:", e);
+            playerElement.innerHTML = `<p>Erro ao carregar o vídeo.</p>`;
+            return;
+        }
 
-      // Aplicar classe de tamanho inicial
-      playerContainer.className = 'video-modal-player-container size-small';
+        // Aplicar classe de tamanho inicial
+        playerContainer.className = 'video-modal-player-container size-small';
 
-      // Atualizar ícone do botão de expandir
-      updateExpandButtonIcon();
+        // Atualizar ícone do botão de expandir
+        updateExpandButtonIcon();
 
-      // Mostrar o overlay
-      overlay.classList.add('active');
+        // Mostrar o overlay
+        overlay.classList.add('active');
     }
 
     function closeVideoModal() {
-      const overlay = document.getElementById('video-modal-overlay');
-      overlay.classList.remove('active');
-      // Limpar o player após um curto atraso para permitir a transição
-      setTimeout(() => {
-         document.getElementById('video-modal-player').innerHTML = '';
-         currentModalVideoUrl = '';
-      }, 300);
+        const overlay = document.getElementById('video-modal-overlay');
+        overlay.classList.remove('active');
+        // Limpar o player após um curto atraso para permitir a transição
+        setTimeout(() => {
+            document.getElementById('video-modal-player').innerHTML = '';
+            currentModalVideoUrl = '';
+        }, 300);
     }
 
     function toggleModalVideoSize() {
-      const playerContainer = document.getElementById('video-modal-player-container');
+        const playerContainer = document.getElementById('video-modal-player-container');
 
-      if (modalSizeState === 'small') {
-        modalSizeState = 'medium';
-        playerContainer.className = 'video-modal-player-container';
-      } else if (modalSizeState === 'medium') {
-        modalSizeState = 'full';
-        playerContainer.className = 'video-modal-player-container size-full';
-      } else { // if (modalSizeState === 'full')
-        modalSizeState = 'small';
-        playerContainer.className = 'video-modal-player-container size-small';
-      }
+        if (modalSizeState === 'small') {
+            modalSizeState = 'medium';
+            playerContainer.className = 'video-modal-player-container';
+        } else if (modalSizeState === 'medium') {
+            modalSizeState = 'full';
+            playerContainer.className = 'video-modal-player-container size-full';
+        } else { // if (modalSizeState === 'full')
+            modalSizeState = 'small';
+            playerContainer.className = 'video-modal-player-container size-small';
+        }
 
-      // Atualizar ícone do botão de expandir
-      updateExpandButtonIcon();
+        // Atualizar ícone do botão de expandir
+        updateExpandButtonIcon();
     }
 
     function updateExpandButtonIcon() {
@@ -1002,7 +1002,48 @@
         // Atualiza o ícone dentro do botão
         expandBtn.innerHTML = `<i class="fas ${iconClass}"></i>`;
     }
-    // --- FIM: Lógica para o Player Modal de Ampliação ---
+
+    // --- FIM: Lógica para o Player Modal de Ampliação com Ícone Original ---
+
+    // --- NOVO: Função para injetar o listener no ícone de ampliar do player ---
+    function injectFullscreenListener(iframe) {
+        // Espera até que o iframe esteja carregado
+        iframe.onload = function() {
+            try {
+                // Tenta acessar o conteúdo do iframe (só funciona se não houver CORS)
+                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                if (!iframeDoc) return;
+
+                // Busca o botão de fullscreen pelo atributo aria-label ou por classe
+                const fullscreenBtn = iframeDoc.querySelector('button[aria-label="Expand"]') ||
+                                    iframeDoc.querySelector('.fullscreen-button') ||
+                                    iframeDoc.querySelector('button[title*="Expand"]');
+
+                if (fullscreenBtn) {
+                    // Armazena o handler original do clique
+                    const originalClickHandler = fullscreenBtn.onclick;
+
+                    // Substitui o clique original pelo nosso
+                    fullscreenBtn.onclick = function(e) {
+                        e.preventDefault(); // Evita a ação padrão do player
+                        // Obtemos a URL do vídeo do iframe
+                        const videoUrl = iframe.src;
+                        // Abre o nosso modal personalizado
+                        openVideoModal(videoUrl);
+                    };
+
+                    // Se o botão já tiver um onclick, armazenamos para possível uso futuro
+                    // (ex: se precisarmos chamar o original em algum caso)
+                    if (originalClickHandler) {
+                        // Não é necessário salvar, pois estamos sobrescrevendo.
+                    }
+                }
+            } catch (e) {
+                console.warn("Não foi possível injetar o listener no botão de fullscreen do iframe.", e);
+            }
+        };
+    }
+    // --- FIM: Função para injetar o listener no ícone de ampliar do player ---
     function showVideoDetails(videoId) {
       const video = allVideos.find(v => v.id == videoId);
       if (!video) {
@@ -1015,12 +1056,33 @@
       categoryElement.innerHTML = video.category ? `<i class="fas fa-tag"></i> ${video.category}` : "";
       document.getElementById("video-detail-description").textContent = video.description || "";
       // --- CONFIGURAÇÃO DO PLAYER PARA BUNNY STREAM ---
-      // Em vez de mostrar no player principal, abre o modal
-      if (video.driveUrl) {
-          openVideoModal(video.driveUrl);
+      const videoPlayer = document.getElementById("video-player");
+      if (videoPlayer && video.driveUrl) {
+          // Inserir o iframe com o código HTML
+          try {
+              videoPlayer.innerHTML = `
+                  <iframe
+                      id="video-iframe-${video.id}"
+                      src="${video.driveUrl}"
+                      loading="lazy"
+                      style="border:0; width:100%; height:100%;"
+                      allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;"
+                      allowfullscreen
+                      sandbox="allow-scripts allow-same-origin allow-presentation"
+                  ></iframe>
+              `;
+              // Obtém o iframe recém-criado
+              const iframe = videoPlayer.querySelector('iframe');
+              if (iframe) {
+                  // Injeta o listener no botão de ampliar do player
+                  injectFullscreenListener(iframe);
+              }
+          } catch (e) {
+              console.error("Erro ao configurar o player de vídeo:", e);
+              videoPlayer.innerHTML = `<p>Erro ao carregar o vídeo. URL inválida.</p>`;
+          }
       } else {
-          const videoPlayer = document.getElementById("video-player");
-          if(videoPlayer) videoPlayer.innerHTML = `<p>URL de incorporação do vídeo não disponível.</p>`;
+          videoPlayer.innerHTML = `<p>URL de incorporação do vídeo não disponível.</p>`;
       }
       // --- FIM DA CONFIGURAÇÃO DO PLAYER ---
       // Atualizar progresso (simulado)
