@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -772,7 +773,7 @@
     }
 
     // --- NOVA FUNÇÃO: FORÇAR FULLSCREEN NO IFRAME ---
-    function handleFullscreen() {
+    function forceFullscreen() {
         const videoPlayer = document.getElementById("video-player");
         if (!videoPlayer || !videoPlayer.querySelector('iframe')) return;
 
@@ -829,8 +830,6 @@
             if (iframe) {
                 // Usa setTimeout para garantir que o iframe já esteja carregado
                 setTimeout(() => {
-                    // Monitora o conteúdo do iframe (precisa de cross-origin)
-                    // Se o iframe tiver acesso, pode-se injetar JS
                     try {
                         // Tenta acessar o conteúdo do iframe (só funciona se não houver CORS)
                         const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
@@ -841,7 +840,7 @@
                             if (fullscreenBtn) {
                                 fullscreenBtn.addEventListener('click', function(e) {
                                     e.preventDefault(); // Evita ação padrão
-                                    handleFullscreen(); // Chama a função personalizada
+                                    forceFullscreen(); // Chama a função personalizada
                                 });
                             }
                         }
@@ -1061,3 +1060,4 @@
   </script>
 </body>
 </html>
+```
