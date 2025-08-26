@@ -493,68 +493,98 @@
       90% { opacity: 1; transform: translateX(0); }
       100% { opacity: 0; transform: translateX(120px); }
     }
-    /* --- NOVO: Estilos para o Player Modal de Ampliação com Ícone Original --- */
-    .video-modal-overlay {
+    /* --- NOVO: Estilos para os botões de controle de tamanho --- */
+    .video-control-buttons {
+      position: absolute;
+      bottom: 15px;
+      right: 15px;
+      display: flex;
+      gap: 10px;
+      z-index: 100;
+    }
+    
+    .video-control-btn {
+      background: rgba(0, 0, 0, 0.6);
+      color: #FFD700;
+      border: 1px solid #FFD700;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+    
+    .video-control-btn:hover {
+      background: rgba(255, 215, 0, 0.2);
+      transform: scale(1.1);
+    }
+    
+    /* Estilos para o modal de tela cheia */
+    .fullscreen-modal {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.9); /* Fundo semi-transparente escuro */
+      background-color: rgba(0, 0, 0, 0.95);
       display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 2000; /* Acima de outros elementos */
+      z-index: 3000;
       opacity: 0;
       visibility: hidden;
       transition: opacity 0.3s ease, visibility 0.3s ease;
     }
-
-    .video-modal-overlay.active {
+    
+    .fullscreen-modal.active {
       opacity: 1;
       visibility: visible;
     }
-
-    .video-modal-player-container {
+    
+    .fullscreen-modal-content {
       position: relative;
+      width: 80%;
+      height: 80%;
+      max-width: 1200px;
+      max-height: 800px;
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
       background-color: #000;
-      /* Estados de tamanho */
-      width: 60%;  /* Tamanho médio como padrão inicial */
+      transition: width 0.4s ease, height 0.4s ease;
+    }
+    
+    .fullscreen-modal-content.size-small {
+      width: 60%;
       height: 60%;
-      max-width: 1000px; /* Limita o tamanho máximo */
-      max-height: 700px;
-      transition: width 0.4s ease, height 0.4s ease, max-width 0.4s ease, max-height 0.4s ease;
     }
-
-    .video-modal-player-container.size-small {
-      width: 50%;
-      height: 50%;
-      max-width: 700px;
-      max-height: 500px;
+    
+    .fullscreen-modal-content.size-medium {
+      width: 80%;
+      height: 80%;
     }
-
-    .video-modal-player-container.size-full {
+    
+    .fullscreen-modal-content.size-full {
       width: 95%;
       height: 95%;
-      max-width: 98vw; /* Usa vw/vh para tela cheia */
-      max-height: 95vh;
     }
-
-    .video-modal-player-container #video-modal-player {
+    
+    .fullscreen-modal-player {
       width: 100%;
       height: 100%;
     }
-
-    .video-modal-player-container #video-modal-player iframe {
+    
+    .fullscreen-modal-player iframe {
       width: 100%;
       height: 100%;
       border: none;
     }
-
-    .video-modal-close-btn {
+    
+    .fullscreen-modal-close {
       position: absolute;
       top: 15px;
       right: 15px;
@@ -569,16 +599,16 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 2010;
+      z-index: 3010;
       transition: background-color 0.2s ease, transform 0.1s ease;
     }
-
-    .video-modal-close-btn:hover {
+    
+    .fullscreen-modal-close:hover {
       background: rgba(255, 0, 0, 0.8);
       transform: scale(1.1);
     }
-
-    .video-modal-expand-btn {
+    
+    .fullscreen-modal-expand {
       position: absolute;
       bottom: 15px;
       right: 15px;
@@ -593,15 +623,15 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 2010;
+      z-index: 3010;
       transition: background-color 0.2s ease, transform 0.1s ease;
     }
-
-    .video-modal-expand-btn:hover {
+    
+    .fullscreen-modal-expand:hover {
       background: rgba(255, 215, 0, 0.2);
       transform: scale(1.1);
     }
-    /* --- FIM: Estilos para o Player Modal de Ampliação com Ícone Original --- */
+    /* --- FIM: Estilos para os botões de controle de tamanho --- */
     /* Responsivo */
     @media (max-width: 992px) {
       body {
@@ -746,6 +776,16 @@
             <div id="video-player">
               <p>Selecione uma videoaula para reproduzir.</p>
             </div>
+            <!-- --- NOVO: Botões de controle de tamanho dentro do layout --- -->
+            <div class="video-control-buttons">
+              <button class="video-control-btn" id="layout-expand-btn" title="Expandir no layout">
+                <i class="fas fa-expand"></i>
+              </button>
+              <button class="video-control-btn" id="fullscreen-expand-btn" title="Expandir para tela cheia">
+                <i class="fas fa-external-link-alt"></i>
+              </button>
+            </div>
+            <!-- --- FIM: Botões de controle de tamanho dentro do layout --- -->
           </div>
           <div class="progress-bar">
             <div class="progress-fill" id="progress-fill"></div>
@@ -766,21 +806,19 @@
       </div>
     </div>
   </div>
-  <!-- --- NOVO: Player Modal de Ampliação com Ícone Original --- -->
-  <div id="video-modal-overlay" class="video-modal-overlay">
-    <div id="video-modal-player-container" class="video-modal-player-container size-small"> <!-- Começa pequeno -->
-      <button id="video-modal-close-btn" class="video-modal-close-btn">
+  <!-- --- NOVO: Modal para tela cheia --- -->
+  <div class="fullscreen-modal" id="fullscreen-modal">
+    <div class="fullscreen-modal-content size-small" id="fullscreen-modal-content">
+      <div class="fullscreen-modal-player" id="fullscreen-modal-player"></div>
+      <button class="fullscreen-modal-close" id="fullscreen-modal-close">
         <i class="fas fa-times"></i>
       </button>
-      <button id="video-modal-expand-btn" class="video-modal-expand-btn">
-        <i class="fas fa-expand"></i> <!-- Ícone inicial -->
+      <button class="fullscreen-modal-expand" id="fullscreen-modal-expand">
+        <i class="fas fa-expand"></i>
       </button>
-      <div id="video-modal-player">
-        <!-- O iframe do vídeo será inserido aqui -->
-      </div>
     </div>
   </div>
-  <!-- --- FIM: Player Modal de Ampliação com Ícone Original --- -->
+  <!-- --- FIM: Modal para tela cheia --- -->
   <!-- Sistema de Notificação -->
   <div class="notification-container" id="notification-container"></div>
   <script>
@@ -793,6 +831,13 @@
     let currentVideoId = null;
     let userEmail = null;
     let sessionToken = null; // Armazena o token de sessão
+    
+    // --- NOVO: Variáveis para controle de tamanho ---
+    let layoutSizeState = 'small'; // small, medium, full
+    let fullscreenSizeState = 'small'; // small, medium, full
+    let currentFullscreenVideoUrl = '';
+    // --- FIM: Variáveis para controle de tamanho ---
+    
     // - INICIALIZAÇÃO -
     document.addEventListener("DOMContentLoaded", function() {
       const loginForm = document.getElementById("loginForm");
@@ -814,28 +859,18 @@
         document.getElementById('app-content').style.display = 'block';
         loadVideos(); // Carrega vídeos usando o token salvo
       }
-       // --- NOVO: Adicionar Event Listeners para o Modal ---
-      const closeBtn = document.getElementById('video-modal-close-btn');
-      const expandBtn = document.getElementById('video-modal-expand-btn');
-      const overlay = document.getElementById('video-modal-overlay');
-
-      if (closeBtn) {
-        closeBtn.addEventListener('click', closeVideoModal);
-      }
-
-      if (expandBtn) {
-        expandBtn.addEventListener('click', toggleModalVideoSize);
-      }
-
-      // Fechar modal ao clicar no overlay (fora do player)
-      if (overlay) {
-        overlay.addEventListener('click', function(e) {
-          if (e.target === overlay) {
-            closeVideoModal();
-          }
-        });
-      }
-       // --- FIM: Adicionar Event Listeners para o Modal ---
+      
+      // --- NOVO: Adicionar event listeners para os botões de controle ---
+      document.getElementById('layout-expand-btn').addEventListener('click', toggleLayoutVideoSize);
+      document.getElementById('fullscreen-expand-btn').addEventListener('click', openFullscreenModal);
+      document.getElementById('fullscreen-modal-close').addEventListener('click', closeFullscreenModal);
+      document.getElementById('fullscreen-modal-expand').addEventListener('click', toggleFullscreenVideoSize);
+      document.getElementById('fullscreen-modal').addEventListener('click', function(e) {
+        if (e.target === this) {
+          closeFullscreenModal();
+        }
+      });
+      // --- FIM: Adicionar event listeners para os botões de controle ---
     });
     // - SISTEMA DE NOTIFICAÇÃO -
     function showNotification(message, type = 'success') {
@@ -916,125 +951,118 @@
         });
       }
     }
-    // --- NOVO: Lógica para o Player Modal de Ampliação com Ícone Original ---
-    let currentModalVideoUrl = '';
-    let modalSizeState = 'small'; // 'small', 'medium', 'full'
-
-    function openVideoModal(videoUrl) {
-        if (!videoUrl) return;
-
-        const overlay = document.getElementById('video-modal-overlay');
-        const playerContainer = document.getElementById('video-modal-player-container');
-        const playerElement = document.getElementById('video-modal-player');
-        const expandBtn = document.getElementById('video-modal-expand-btn');
-
-        currentModalVideoUrl = videoUrl;
-        modalSizeState = 'small'; // Resetar para o estado inicial
-
-        // Configurar o player com o vídeo
-        try {
-            playerElement.innerHTML = `
-                <iframe
-                    src="${currentModalVideoUrl}"
-                    loading="lazy"
-                    style="border:0; width:100%; height:100%;"
-                    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;"
-                    allowfullscreen
-                    sandbox="allow-scripts allow-same-origin allow-presentation"
-                ></iframe>
-            `;
-        } catch (e) {
-            console.error("Erro ao configurar o player modal de vídeo:", e);
-            playerElement.innerHTML = `<p>Erro ao carregar o vídeo.</p>`;
-            return;
-        }
-
-        // Aplicar classe de tamanho inicial
-        playerContainer.className = 'video-modal-player-container size-small';
-
-        // Atualizar ícone do botão de expandir
-        updateExpandButtonIcon();
-
-        // Mostrar o overlay
-        overlay.classList.add('active');
+    
+    // --- NOVO: Funções para controle de tamanho ---
+    function toggleLayoutVideoSize() {
+      const playerContainer = document.querySelector('.video-player-container');
+      const videoPlayer = document.getElementById('video-player');
+      
+      if (layoutSizeState === 'small') {
+        layoutSizeState = 'medium';
+        playerContainer.style.paddingTop = '75%'; // 4:3
+      } else if (layoutSizeState === 'medium') {
+        layoutSizeState = 'full';
+        playerContainer.style.paddingTop = '100%'; // 1:1
+      } else { // full
+        layoutSizeState = 'small';
+        playerContainer.style.paddingTop = '56.25%'; // 16:9 (original)
+      }
+      
+      // Atualiza o ícone do botão
+      updateLayoutExpandButtonIcon();
     }
-
-    function closeVideoModal() {
-        const overlay = document.getElementById('video-modal-overlay');
-        overlay.classList.remove('active');
-        // Limpar o player após um curto atraso para permitir a transição
-        setTimeout(() => {
-            document.getElementById('video-modal-player').innerHTML = '';
-            currentModalVideoUrl = '';
-        }, 300);
+    
+    function updateLayoutExpandButtonIcon() {
+      const btn = document.getElementById('layout-expand-btn');
+      let iconClass = 'fa-expand';
+      if (layoutSizeState === 'small') {
+        iconClass = 'fa-expand';
+      } else if (layoutSizeState === 'medium') {
+        iconClass = 'fa-expand';
+      } else if (layoutSizeState === 'full') {
+        iconClass = 'fa-compress';
+      }
+      btn.innerHTML = `<i class="fas ${iconClass}"></i>`;
     }
-
-    function toggleModalVideoSize() {
-        const playerContainer = document.getElementById('video-modal-player-container');
-
-        if (modalSizeState === 'small') {
-            modalSizeState = 'medium';
-            playerContainer.className = 'video-modal-player-container';
-        } else if (modalSizeState === 'medium') {
-            modalSizeState = 'full';
-            playerContainer.className = 'video-modal-player-container size-full';
-        } else { // if (modalSizeState === 'full')
-            modalSizeState = 'small';
-            playerContainer.className = 'video-modal-player-container size-small';
-        }
-
-        // Atualizar ícone do botão de expandir
-        updateExpandButtonIcon();
+    
+    function openFullscreenModal() {
+      const video = allVideos.find(v => v.id == currentVideoId);
+      if (!video || !video.driveUrl) {
+        showNotification('Nenhum vídeo selecionado para tela cheia.', 'error');
+        return;
+      }
+      
+      const modal = document.getElementById('fullscreen-modal');
+      const modalPlayer = document.getElementById('fullscreen-modal-player');
+      const modalContent = document.getElementById('fullscreen-modal-content');
+      
+      currentFullscreenVideoUrl = video.driveUrl;
+      fullscreenSizeState = 'small';
+      modalContent.className = 'fullscreen-modal-content size-small';
+      
+      try {
+        modalPlayer.innerHTML = `
+          <iframe
+            src="${currentFullscreenVideoUrl}"
+            loading="lazy"
+            style="border:0; width:100%; height:100%;"
+            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;"
+            allowfullscreen
+            sandbox="allow-scripts allow-same-origin allow-presentation"
+          ></iframe>
+        `;
+      } catch (e) {
+        console.error("Erro ao configurar o player modal de vídeo:", e);
+        modalPlayer.innerHTML = `<p>Erro ao carregar o vídeo.</p>`;
+        return;
+      }
+      
+      modal.classList.add('active');
+      updateFullscreenExpandButtonIcon();
     }
-
-    function updateExpandButtonIcon() {
-        const expandBtn = document.getElementById('video-modal-expand-btn');
-        if (!expandBtn) return;
-
-        let iconClass = 'fa-expand'; // Padrão para próximo estágio
-        if (modalSizeState === 'small') {
-            iconClass = 'fa-expand'; // Próximo: médio
-        } else if (modalSizeState === 'medium') {
-            iconClass = 'fa-expand'; // Próximo: tela cheia (mesmo ícone, mas comportamento muda)
-        } else if (modalSizeState === 'full') {
-            iconClass = 'fa-compress'; // Próximo: pequeno
-        }
-        // Atualiza o ícone dentro do botão
-        expandBtn.innerHTML = `<i class="fas ${iconClass}"></i>`;
+    
+    function closeFullscreenModal() {
+      const modal = document.getElementById('fullscreen-modal');
+      const modalPlayer = document.getElementById('fullscreen-modal-player');
+      
+      modal.classList.remove('active');
+      setTimeout(() => {
+        modalPlayer.innerHTML = '';
+        currentFullscreenVideoUrl = '';
+      }, 300);
     }
-
-    // --- FIM: Lógica para o Player Modal de Ampliação com Ícone Original ---
-
-    // --- NOVO: Função para injetar o listener no ícone de ampliar do player ---
-    function injectFullscreenListener(iframe) {
-        // Espera até que o iframe esteja carregado
-        iframe.onload = function() {
-            try {
-                // Tenta acessar o conteúdo do iframe (só funciona se não houver CORS)
-                const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-                if (!iframeDoc) return;
-
-                // Busca o botão de fullscreen pelo atributo aria-label ou por classe
-                const fullscreenBtn = iframeDoc.querySelector('button[aria-label="Expand"]') ||
-                                    iframeDoc.querySelector('.fullscreen-button') ||
-                                    iframeDoc.querySelector('button[title*="Expand"]');
-
-                if (fullscreenBtn) {
-                    // Substitui o clique original pelo nosso
-                    fullscreenBtn.onclick = function(e) {
-                        e.preventDefault(); // Evita a ação padrão do player
-                        // Obtemos a URL do vídeo do iframe
-                        const videoUrl = iframe.src;
-                        // Abre o nosso modal personalizado
-                        openVideoModal(videoUrl);
-                    };
-                }
-            } catch (e) {
-                console.warn("Não foi possível injetar o listener no botão de fullscreen do iframe.", e);
-            }
-        };
+    
+    function toggleFullscreenVideoSize() {
+      const modalContent = document.getElementById('fullscreen-modal-content');
+      
+      if (fullscreenSizeState === 'small') {
+        fullscreenSizeState = 'medium';
+        modalContent.className = 'fullscreen-modal-content size-medium';
+      } else if (fullscreenSizeState === 'medium') {
+        fullscreenSizeState = 'full';
+        modalContent.className = 'fullscreen-modal-content size-full';
+      } else { // full
+        fullscreenSizeState = 'small';
+        modalContent.className = 'fullscreen-modal-content size-small';
+      }
+      
+      updateFullscreenExpandButtonIcon();
     }
-    // --- FIM: Função para injetar o listener no ícone de ampliar do player ---
+    
+    function updateFullscreenExpandButtonIcon() {
+      const btn = document.getElementById('fullscreen-modal-expand');
+      let iconClass = 'fa-expand';
+      if (fullscreenSizeState === 'small') {
+        iconClass = 'fa-expand';
+      } else if (fullscreenSizeState === 'medium') {
+        iconClass = 'fa-expand';
+      } else if (fullscreenSizeState === 'full') {
+        iconClass = 'fa-compress';
+      }
+      btn.innerHTML = `<i class="fas ${iconClass}"></i>`;
+    }
+    // --- FIM: Funções para controle de tamanho ---
+    
     function showVideoDetails(videoId) {
       const video = allVideos.find(v => v.id == videoId);
       if (!video) {
@@ -1049,31 +1077,26 @@
       // --- CONFIGURAÇÃO DO PLAYER PARA BUNNY STREAM ---
       const videoPlayer = document.getElementById("video-player");
       if (videoPlayer && video.driveUrl) {
-          // Inserir o iframe com o código HTML
-          try {
-              videoPlayer.innerHTML = `
-                  <iframe
-                      id="video-iframe-${video.id}"
-                      src="${video.driveUrl}"
-                      loading="lazy"
-                      style="border:0; width:100%; height:100%;"
-                      allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;"
-                      allowfullscreen
-                      sandbox="allow-scripts allow-same-origin allow-presentation"
-                  ></iframe>
-              `;
-              // Obtém o iframe recém-criado
-              const iframe = videoPlayer.querySelector('iframe');
-              if (iframe) {
-                  // Injeta o listener no botão de ampliar do player
-                  injectFullscreenListener(iframe);
-              }
-          } catch (e) {
-              console.error("Erro ao configurar o player de vídeo:", e);
-              videoPlayer.innerHTML = `<p>Erro ao carregar o vídeo. URL inválida.</p>`;
-          }
+        try {
+            // Usa o link de incorporação diretamente fornecido pela planilha
+            // Exemplo: https://iframe.mediadelivery.net/embed/LIBRARY_ID/VIDEO_ID?...
+            // Adiciona atributos específicos recomendados pelo Bunny Stream
+            videoPlayer.innerHTML = `
+              <iframe
+                src="${video.driveUrl}"
+                loading="lazy"
+                style="border:0; width:100%; height:100%;"
+                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                allowfullscreen
+                sandbox="allow-scripts allow-same-origin allow-presentation"
+              ></iframe>
+            `;
+        } catch (e) {
+            console.error("Erro ao configurar o player de vídeo:", e);
+            videoPlayer.innerHTML = `<p>Erro ao carregar o vídeo. URL inválida.</p>`;
+        }
       } else {
-          videoPlayer.innerHTML = `<p>URL de incorporação do vídeo não disponível.</p>`;
+        videoPlayer.innerHTML = `<p>URL de incorporação do vídeo não disponível.</p>`;
       }
       // --- FIM DA CONFIGURAÇÃO DO PLAYER ---
       // Atualizar progresso (simulado)
@@ -1088,6 +1111,12 @@
       });
       // Scroll para o topo da seção de detalhes
       document.querySelector('.video-detail-section').scrollIntoView({ behavior: 'smooth' });
+      
+      // --- NOVO: Resetar estado do layout ao mostrar novo vídeo ---
+      layoutSizeState = 'small';
+      document.querySelector('.video-player-container').style.paddingTop = '56.25%';
+      updateLayoutExpandButtonIcon();
+      // --- FIM: Resetar estado do layout ao mostrar novo vídeo ---
     }
     // - FUNÇÕES DE FILTRO E BUSCA -
     function filterVideos() {
@@ -1168,8 +1197,10 @@
       document.getElementById("searchInput").value = "";
       document.getElementById("categoryFilter").innerHTML = '<option value="">Todas as Categorias</option>';
       showNotification('Você saiu da conta.', 'success');
-       // Fechar o modal de vídeo se estiver aberto
-       closeVideoModal();
+      
+      // --- NOVO: Fechar modal de tela cheia ao sair ---
+      closeFullscreenModal();
+      // --- FIM: Fechar modal de tela cheia ao sair ---
     }
     // - FUNÇÕES DE COMUNICAÇÃO COM O BACKEND -
     async function loadVideos() {
@@ -1215,8 +1246,6 @@
           showVideoDetails(filteredVideos[0].id);
         } else {
            document.getElementById("video-player").innerHTML = '<p>Nenhuma videoaula disponível para este usuário.</p>';
-           // Fechar o modal de vídeo se não houver vídeos
-           closeVideoModal();
         }
         showSection("app-content"); // Mostra o conteúdo principal após carregar
       } catch (error) {
