@@ -493,6 +493,35 @@
       90% { opacity: 1; transform: translateX(0); }
       100% { opacity: 0; transform: translateX(120px); }
     }
+    /* --- NOVO: Botão de Expansão Personalizado --- */
+    .expand-btn {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(0, 0, 0, 0.8);
+      color: #FFD700;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      z-index: 10;
+    }
+
+    .expand-btn:hover {
+      background: rgba(255, 215, 0, 0.2);
+      transform: scale(1.1);
+    }
+
+    .expand-btn i {
+      color: #FFD700;
+    }
     /* Responsivo */
     @media (max-width: 992px) {
       body {
@@ -637,6 +666,10 @@
             <div id="video-player">
               <p>Selecione uma videoaula para reproduzir.</p>
             </div>
+            <!-- Botão de expansão personalizado -->
+            <button id="expandButton" class="expand-btn" title="Alternar tamanho">
+              <i class="fas fa-expand"></i>
+            </button>
           </div>
           <div class="progress-bar">
             <div class="progress-fill" id="progress-fill"></div>
@@ -770,30 +803,6 @@
         });
       }
     }
-
-    // --- NOVA FUNÇÃO: FORÇAR FULLSCREEN NO IFRAME ---
-    function forceFullscreen() {
-        const videoPlayer = document.getElementById("video-player");
-        if (!videoPlayer || !videoPlayer.querySelector('iframe')) return;
-
-        const iframe = videoPlayer.querySelector('iframe');
-        if (!iframe) return;
-
-        // Verifica se o navegador suporta fullscreen
-        if (document.documentElement.requestFullscreen) {
-            iframe.requestFullscreen().catch(err => {
-                console.warn("Erro ao entrar em tela cheia:", err);
-                showNotification("Não foi possível ampliar o vídeo. Verifique as permissões do navegador.", 'error');
-            });
-        } else if (iframe.webkitRequestFullScreen) {
-            iframe.webkitRequestFullScreen();
-        } else if (iframe.mozRequestFullScreen) {
-            iframe.mozRequestFullScreen();
-        } else if (iframe.msRequestFullscreen) {
-            iframe.msRequestFullscreen();
-        }
-    }
-
     function showVideoDetails(videoId) {
       const video = allVideos.find(v => v.id == videoId);
       if (!video) {
@@ -814,48 +823,14 @@
             // Adiciona atributos específicos recomendados pelo Bunny Stream
             videoPlayer.innerHTML = `
               <iframe
-                id="video-iframe-${video.id}"
                 src="${video.driveUrl}"
                 loading="lazy"
                 style="border:0; width:100%; height:100%;"
-                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen;"
+                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
                 allowfullscreen
                 sandbox="allow-scripts allow-same-origin allow-presentation"
               ></iframe>
             `;
-
-            // --- INJETA EVENTO DE FULLSCREEN ---
-            const iframe = videoPlayer.querySelector('iframe');
-            if (iframe) {
-                // Usa setTimeout para garantir que o iframe já esteja carregado
-                setTimeout(() => {
-                    try {
-                        // Tenta acessar o conteúdo do iframe (só funciona se não houver CORS)
-                        const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
-                        if (iframeDoc) {
-                            // Adiciona um escuta no botão de fullscreen
-                            const fullscreenBtn = iframeDoc.querySelector('button[aria-label="Expand"]') ||
-                                                iframeDoc.querySelector('.fullscreen-button');
-                            if (fullscreenBtn) {
-                                fullscreenBtn.addEventListener('click', function(e) {
-                                    e.preventDefault(); // Evita ação padrão
-                                    forceFullscreen(); // Chama a função personalizada
-                                });
-                            }
-                        }
-                    } catch (e) {
-                        console.warn("Não foi possível acessar o iframe. Usando fallback.");
-                        // Fallback: chama fullscreen no iframe mesmo sem acesso interno
-                        iframe.addEventListener('load', () => {
-                            // Adiciona um listener global no iframe
-                            iframe.onload = () => {
-                                iframe.contentWindow.postMessage('REQUEST_FULLSCREEN', '*'); // Tentativa de comunicação
-                            };
-                        });
-                    }
-                }, 500);
-            }
-
         } catch (e) {
             console.error("Erro ao configurar o player de vídeo:", e);
             videoPlayer.innerHTML = `<p>Erro ao carregar o vídeo. URL inválida.</p>`;
@@ -1055,6 +1030,42 @@
       return Math.floor(Math.random() * 100); // 0-100%
       // OU, para sempre mostrar 0% inicialmente:
       // return 0;
+    }
+
+    // --- FUNÇÃO DE CONTROLE DE TAMANHO DO PLAYER (Simplificada) ---
+    let isFullscreen = false;
+    const playerContainer = document.querySelector('.video-player-container');
+    const expandBtn = document.getElementById('expandButton');
+
+    function togglePlayerSize() {
+      if (!isFullscreen) {
+        // Entrar em modo tela cheia centralizado
+        playerContainer.style.position = 'fixed';
+        playerContainer.style.top = '0';
+        playerContainer.style.left = '0';
+        playerContainer.style.width = '100vw';
+        playerContainer.style.height = '100vh';
+        playerContainer.style.zIndex = '9999';
+        playerContainer.style.borderRadius = '0';
+        playerContainer.style.boxShadow = 'none';
+        expandBtn.innerHTML = '<i class="fas fa-compress"></i>';
+        isFullscreen = true;
+      } else {
+        // Voltar ao tamanho normal
+        playerContainer.style.position = 'relative';
+        playerContainer.style.width = '100%';
+        playerContainer.style.height = '500px'; // ou '56.25%' para manter proporção
+        playerContainer.style.zIndex = 'auto';
+        playerContainer.style.borderRadius = '15px';
+        playerContainer.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.6)';
+        expandBtn.innerHTML = '<i class="fas fa-expand"></i>';
+        isFullscreen = false;
+      }
+    }
+
+    // Evento de clique no botão de expansão
+    if (expandBtn) {
+      expandBtn.addEventListener('click', togglePlayerSize);
     }
   </script>
 </body>
